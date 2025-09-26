@@ -74,28 +74,14 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
         itemBuilder: (context, index) {
           final d = deliveries[index];
           return ListTile(
-            title: Text(d.recipient),
-            subtitle: Text(d.address),
-            trailing: Text(d.status,
+            title: Text(d.receiverName!),
+            subtitle: Text(d.toAddress!),
+            trailing: Text(d.status!,
                 style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.deepOrange)),
           );
         },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          // Example: add a new delivery
-          final newDelivery = Delivery(
-            id: DateTime.now().millisecondsSinceEpoch.toString(),
-            recipient: "Test User",
-            address: "123 Test St",
-            status: "Pending",
-          );
-          await api.createDelivery(newDelivery);
-          fetchDeliveries();
-        },
-        child: const Icon(Icons.add),
       ),
     );
   }
