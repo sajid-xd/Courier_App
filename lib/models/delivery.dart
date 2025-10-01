@@ -11,6 +11,7 @@ class Delivery {
   int? locationId;
   String? trackingId;
   String? status;
+  String? createdAt;
 
   Delivery(
       {
@@ -25,7 +26,8 @@ class Delivery {
         this.weightId,
         this.locationId,
         this.trackingId,
-        this.status});
+        this.status,
+      this.createdAt});
 
   Delivery.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -40,6 +42,7 @@ class Delivery {
     locationId = json['location_Id'];
     trackingId = json['tracking_Id'];
     status = json['status'];
+    createdAt = json['created_At'];
   }
 
   Map<String, dynamic> toJson() {
@@ -56,6 +59,7 @@ class Delivery {
     data['location_Id'] = locationId;
     data['tracking_Id'] = trackingId;
     data['status'] = status;
+    data['created_At'] = createdAt;
     return data;
   }
 }
